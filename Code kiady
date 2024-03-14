@@ -1,0 +1,152 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+void PlusMoins (int choix_joueur, int valeur_a_trouver, int difficulte)
+{
+    int tentative;
+    int compteur;
+    int tentatives;
+    switch (difficulte)
+    {
+        case 1: 
+                printf("\n");
+    
+                while (difficulte)
+                {
+
+                    if  (choix_joueur < valeur_a_trouver)
+                    {
+                    printf("Plus\n\n");
+                    }
+     
+                    else if (choix_joueur > valeur_a_trouver)
+                    {
+                    printf("Moins\n\n");
+                    }
+     
+     
+                    else     
+                    {
+                    printf("Bingo");
+                    break;
+                    }
+     
+                    printf("Entrer un autre guess: ");
+                    scanf("%d", &choix_joueur);
+                }
+                break;
+        
+        case 2: 
+            
+                tentative= 25;
+                compteur= 0;
+                tentatives= 25;
+                printf("\n");
+    
+                printf("Votre premier guess est: %d\n", choix_joueur);
+    
+                while (compteur < tentatives)
+                {
+
+                    if  (choix_joueur < valeur_a_trouver)
+                    {
+                    printf("Plus\n\n");
+                    tentative= tentative -1;
+                    compteur++;
+                    }
+     
+                    else if (choix_joueur > valeur_a_trouver)
+                    {
+                    printf("Moins\n\n");
+                    tentative= tentative -1;
+                    compteur++;
+                    }
+     
+     
+                    else     
+                    {
+                    printf("Bingo");
+                    break;
+                    }
+     
+                    if (compteur == tentatives && choix_joueur != valeur_a_trouver)
+                    {
+                    printf("Vouv n'avez pas trouver le nombre. Le nombre etait %d.", valeur_a_trouver);
+                    break;
+                    }
+                    printf("Il vous reste %d tentative(s)\n", tentative);
+                    printf("Entrer un autre guess: ");
+                    scanf("%d", &choix_joueur);
+                }
+                break;
+        
+        case 3: 
+        
+                tentative = 10;
+                compteur = 10;
+                tentatives =10;
+                printf("\n");
+    
+                printf("Votre premier guess est: %d\n", choix_joueur);
+    
+                while (compteur < tentatives)
+                {
+
+                    if  (choix_joueur < valeur_a_trouver)
+                    {
+                    printf("Plus\n\n");
+                    tentative= tentative -1;
+                    compteur++;
+                    }
+     
+                    else if (choix_joueur > valeur_a_trouver)
+                    {
+                    printf("Moins\n\n");
+                    tentative= tentative -1;
+                    compteur++;
+                    }
+     
+     
+                    else     
+                    {
+                    printf("Bingo");
+                    break;
+                    }
+     
+                    if (compteur == tentatives && choix_joueur != valeur_a_trouver)
+                    {
+                    printf("Vouv n'avez pas trouver le nombre. Le nombre etait %d.", valeur_a_trouver);
+                    break;
+                    }
+                    printf("Il vous reste %d tentative(s)\n", tentative);
+                    printf("Entrer un autre guess: ");
+                    scanf("%d", &choix_joueur);
+                }
+                break;        
+    }
+}   
+
+int main()
+{
+    int a;
+    srand(time(NULL));
+    int b= rand() % 100 + 0;
+    int mode;
+    
+    printf("Mode de difficulte:\n");
+    printf("facile: nombres d'essaie illimites.\nmoyen: nombre d'essaie 25.\ndifficile: nombre d'essaie 10\n\n");
+    printf("Entrer 1 (pour facile), 2 (pour moyen) ou 3(pour difficile) : ");
+    scanf("%d", &mode);
+    
+    printf("\n");
+    
+    printf("Entrer votre  premier guess: ");
+    scanf("%d", &a);
+    
+    
+    PlusMoins(a,b,mode);
+    
+    return 0;
+}
+
